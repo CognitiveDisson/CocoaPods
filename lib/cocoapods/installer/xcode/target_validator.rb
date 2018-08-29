@@ -78,7 +78,9 @@ module Pod
 
               static_libs = depended_upon_targets.flat_map(&:file_accessors).flat_map(&:vendored_static_artifacts)
               unless static_libs.empty?
-                raise Informative, "The '#{aggregate_target.label}' target has " \
+                # raise Informative, "The '#{aggregate_target.label}' target has " \
+                #   "transitive dependencies that include static binaries: (#{static_libs.to_sentence})"
+                UI.message "The '#{aggregate_target.label}' target has " \
                   "transitive dependencies that include static binaries: (#{static_libs.to_sentence})"
               end
 
