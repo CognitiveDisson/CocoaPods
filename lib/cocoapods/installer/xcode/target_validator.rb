@@ -80,7 +80,7 @@ module Pod
               unless static_libs.empty?
                 # raise Informative, "The '#{aggregate_target.label}' target has " \
                 #   "transitive dependencies that include static binaries: (#{static_libs.to_sentence})"
-                UI.message "The '#{aggregate_target.label}' target has " \
+                UI.warn "The '#{aggregate_target.label}' target has " \
                   "transitive dependencies that include static binaries: (#{static_libs.to_sentence})"
               end
 
